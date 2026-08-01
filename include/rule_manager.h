@@ -151,3 +151,5 @@ private:
 } // namespace DPI
 
 #endif // RULE_MANAGER_H
+
+
