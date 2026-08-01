@@ -499,7 +499,7 @@ public:
         reader.close();
         
         // Wait for queues to drain
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
         
         // Stop all threads
         for (auto& lb : lbs_) lb->stop();
