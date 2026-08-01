@@ -1,5 +1,5 @@
 # DPI Engine - Deep Packet Inspection Analyzer
-
+[![Build and Test](https://github.com/Prajwal-GT/Deep-Packet-Inspection-Analyzer/actions/workflows/build.yml/badge.svg)](https://github.com/Prajwal-GT/Deep-Packet-Inspection-Analyzer/actions/workflows/build.yml)
 
 This document explains **everything** about this project - from basic networking concepts to the complete code architecture. how packets flow through the system without needing to read the code.
 
