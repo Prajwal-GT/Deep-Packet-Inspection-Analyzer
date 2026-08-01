@@ -1,0 +1,35 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build multi-threaded DPI engine
+        run: |
+          g++ -std=c++17 -pthread -O2 -I include -o dpi_engine \
+            src/dpi_mt.cpp \
+            src/pcap_reader.cpp \
+            src/packet_parser.cpp \
+            src/sni_extractor.cpp \
+            src/types.cpp \
+            src/connection_tracker.cpp \
+            src/rule_manager.cpp \
+            src/load_balancer.cpp \
+            src/fast_path.cpp
+
+      - name: Build and run tests
+        run: |
+          g++ -std=c++17 -I include -I tests -o tests/run_tests \
+            tests/test_sni_extractor.cpp \
+            src/sni_extractor.cpp
+          ./tests/run_tests
